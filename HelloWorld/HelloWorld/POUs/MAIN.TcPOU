@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="MAIN" Id="{6f278f16-343d-45e9-8f7a-ee2422a7ad6f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	runOnTime:BOOL:=TRUE; 
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF runOnTime THEN
+	ADSLOGSTR(msgCtrlMask:=ADSLOG_MSGTYPE_ERROR OR ADSLOG_MSGTYPE_LOG, msgFmtStr:='Hello %s',strArg:='World');
+	runOnTime:=FALSE;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="7" Count="0" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="8" Count="1" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
